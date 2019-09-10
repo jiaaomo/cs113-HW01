@@ -91,6 +91,16 @@ public class myClassSolver {
                     w = i;
             solution = jack.checkAnswer(weapon+1, location+1, murder+1);
 
+            if(solution == 1) {
+                mur[m] = false;
+            }
+                else if (solution == 2){
+                loc[l] = false;
+            }
+                else if(solution == 3){
+                    wep[w] = false;
+            }
+
         } while(solution != 0);
 
                     answer = new Theory(weapon, location, murder);
