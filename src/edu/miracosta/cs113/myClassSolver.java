@@ -50,7 +50,8 @@ public class myClassSolver {
      */
     public static void main(String[] args) {
         // DECLARATION + INITIALIZATION
-        int answerSet, solution, murder, weapon, location;
+        int answerSet,
+                solution, murder=6, weapon=6, location=10;
         Theory answer;
         AssistantJack jack;
         Scanner keyboard = new Scanner(System.in);
@@ -58,30 +59,51 @@ public class myClassSolver {
 
         // INPUT
         System.out.print("Which theory would like you like to test? (1, 2, 3[random]): ");
+
         answerSet = keyboard.nextInt();
         keyboard.close();
-
         // PROCESSING
         jack = new AssistantJack(answerSet);
 
-        do {
-            weapon = random.nextInt(6) + 1;
-            location = random.nextInt(10) + 1;
-            murder = random.nextInt(6) + 1;
-            solution = jack.checkAnswer(weapon, location, murder);
-        } while (solution != 0);
+        boolean []mur= new boolean[murder];
+        boolean []loc = new boolean[location];
+        boolean []wep = new boolean[weapon];
 
-        answer = new Theory(weapon, location, murder);
-
-        // OUTPUT
-        System.out.println("Total Checks = " + jack.getTimesAsked() + ", Solution " + answer);
-
-        if (jack.getTimesAsked() > 20) {
-            System.out.println("FAILED!! You're a horrible Detective...");
-        } else {
-            System.out.println("WOW! You might as well be called Batman!");
+        for(int i = 0; i<mur.length;i++){
+            mur[i]=true;
         }
+        for(int i = 0; i<loc.length;i++){
+            loc[i]=true;
+        }
+        for(int i = 0; i<wep.length;i++){
+            wep[i]=true;
+        }
+        do {
+            int m = -1, l = -1, w = -1;
+            for(int i =0; i<murder;i++)
+                if(mur[i])
+                    m = i;
+            for(int i =0; i<location;i++)
+                if(loc[i])
+                    l = i;
+             for(int i =0; i<weapon;i++)
+                if(wep[i])
+                    w = i;
+            solution = jack.checkAnswer(weapon+1, location+1, murder+1);
 
-    }
+        } while(solution != 0);
+
+                    answer = new Theory(weapon, location, murder);
+
+                    // OUTPUT
+
+                    //System.out.println("Answer: " + solution);
+        System.out.println("Total Checks = " + jack.getTimesAsked() + ", Solution " + answer);
+                    if (jack.getTimesAsked() > 20) {
+                        System.out.println("FAILED!! You're a horrible Detective...");
+                    } else {
+                        System.out.println("WOW! You might as well be called Batman!");
+                    }
+        }
 
 }
