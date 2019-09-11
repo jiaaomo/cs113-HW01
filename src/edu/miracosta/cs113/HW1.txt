@@ -1,0 +1,8 @@
+HW 1
+How often do you get a solution in fewer than 20 guesses? Does this change depending on the theory you test (1, 2, 3)?
+	Very often. Yes, because whenever solution = 1, it decrement the chance of weapon options, whenever solution = 2, it decrement 
+	the chance of location options and whenever solution = 3, it decrement the chance of the person.
+
+What is good or bad about this strategy?
+  The good thing for this strategy is that it can keep tracking each element of weapon, location and murder from 6 to 1, 10 to 1 and 6 to 1, 
+the result will accurate. The bad about this strategy is the time consumming
