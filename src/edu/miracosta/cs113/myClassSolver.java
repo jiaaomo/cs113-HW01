@@ -63,7 +63,7 @@ public class myClassSolver {
 
         // PROCESSING
         jack = new AssistantJack(answerSet);
-
+        //
         //
         do{
             solution = jack.checkAnswer(weapon, location, murder);
