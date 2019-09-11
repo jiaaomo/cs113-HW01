@@ -50,7 +50,7 @@ public class myClassSolver {
      */
     public static void main(String[] args) {
         // DECLARATION + INITIALIZATION
-        int answerSet, solution, murder, weapon, location;
+        int answerSet, solution, murder=6, weapon=6, location=10;
         Theory answer;
         AssistantJack jack;
         Scanner keyboard = new Scanner(System.in);
@@ -64,12 +64,20 @@ public class myClassSolver {
         // PROCESSING
         jack = new AssistantJack(answerSet);
 
-        do {
-            weapon = random.nextInt(6) + 1;
-            location = random.nextInt(10) + 1;
-            murder = random.nextInt(6) + 1;
+        do{
             solution = jack.checkAnswer(weapon, location, murder);
-        } while (solution != 0);
+            if(solution == 1){
+                weapon--;
+            }
+            else if(solution == 2){
+                location--;
+            }
+            else if (solution == 3){
+                murder--;
+            }
+            answer = new Theory(weapon, location, murder);
+            System.out.println("Total = "+ answer);
+        } while(solution != 0);
 
         answer = new Theory(weapon, location, murder);
 
@@ -81,7 +89,6 @@ public class myClassSolver {
         } else {
             System.out.println("WOW! You might as well be called Batman!");
         }
-
     }
 
 }
