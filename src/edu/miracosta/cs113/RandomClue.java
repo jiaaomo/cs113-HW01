@@ -78,8 +78,10 @@ public class RandomClue {
 
         if (jack.getTimesAsked() > 20) {
             System.out.println("FAILED!! You're a horrible Detective...");
+            System.out.println("Total Checks = " + jack.getTimesAsked() + ", Solution " + answer);
         } else {
             System.out.println("WOW! You might as well be called Batman!");
+
         }
 
     }
